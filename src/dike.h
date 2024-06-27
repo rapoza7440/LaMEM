@@ -45,12 +45,12 @@ public:
   PetscScalar x_Mc;
   PetscScalar z_Mc;
   PetscScalar Tsol;
-  PetscScalar filtx; 
-  PetscScalar filty;
-  PetscScalar drhomagma;
-  PetscScalar zmax_magma;
-  PetscScalar magPfac;
-  PetscScalar magPwidth;
+  PetscScalar filtx;    // Smoothing of stress is done with moving window, weighted as elliptical Gaussian 
+  PetscScalar filty;    // filtx, filty, are 1-sigma widths perpendicular and parallel to local dike zone in km
+  PetscScalar drhomagma;    // Density contrast of magma from asthenosphere for adding magma pressure with zmax_magma 
+  PetscScalar zmax_magma;   // Maximum depth of magma pooling for adding magma pressure
+  PetscScalar magPfac;      // Magma pressure is also multiplied by a Gaussian function of x distance from previous dike location
+  PetscScalar magPwidth;    //magPfac is the maximum of the function, magPwidth is the 1-sigma width of the Gaussian. 
   //PetscScalar ymindyn;
   //PetscScalar ymaxdyn;
   Vec sxx_eff_ave;
